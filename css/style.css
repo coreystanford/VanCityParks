@@ -1,0 +1,237 @@
+@charset "utf-8";
+
+/*  -------------------------  */
+/*  ----------RESET----------  */
+/*  -------------------------  */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public dosection)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a, a:hover {
+    text-decoration: none; 
+}
+
+strong { font-weight: bold; }
+em { font-style: italic; }
+
+/*  -------------------------  */
+/*  -----GENERAL STYLING-----  */
+/*  -------------------------  */
+
+html {
+    font-size: 1em;
+    line-height: 1.3;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+body {
+    font-family: 'Museo Slab', serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    color: #0184ae;
+    height: 100%;
+}
+
+h1 { font-size: 30px; font-size: 1.875rem; line-height: 1.5; }
+h2 { font-size: 26px; font-size: 1.625rem; line-height: 1; }
+h3 { font-size: 22px; font-size: 1.375rem; line-height: 1.2; }
+h4 { font-size: 18px; font-size: 1.125rem; line-height: 1.125; }
+h5 { font-size: 16px; font-size: 1rem; line-height: 1.125; }
+h6 { font-size: 14px; font-size: 0.875rem; line-height: 1.125; }
+p { font-size: 16px; font-size: 1rem; line-height: 1.3; }
+a { color: #0184ae; }
+
+#wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+/*  -----HEADER-----  */
+
+header {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: #fff;
+    z-index: 1;
+    display: table;
+    border-bottom: 1px solid #0184ae;
+}
+
+#menu {
+    line-height: 50px;
+    display: table-cell;
+    width: 215px;
+    float: left;
+    padding: 0 30px;
+    border-right: 1px solid #0184ae;
+    cursor: default;
+}
+    
+    #logoblue {
+        font-weight: 500;
+        color: #0184ae;
+    }
+
+    #logogreen {
+        font-weight: 700;
+        color: #8ecd38;
+        margin-right: 10px;
+    }
+
+#search {
+    display: table-cell;
+    min-width: 8%;
+    line-height: 50px;
+    padding: 0 20px;
+    border-left: 1px solid #0184ae;
+    float: right;
+    text-align: center;
+    background: #0184ae;
+    color: #fff;
+}
+
+/*  -----OFF-CANVAS NAV-----  */
+
+#off-canvas {
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: -276px;
+    width: 275px;
+    z-index: 1;
+    border-top: 1px solid #0184ae;
+    border-right: 1px solid #0184ae;
+    background: #fff;
+}
+
+#options {
+    width: 100%;
+}
+
+#options a {
+    width: 100%;
+    line-height: 50px;
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid #0184ae;
+}
+
+#water {
+    margin-top: 75px;
+}
+
+#water a {
+    width: 100%;
+    line-height: 50px;
+    display: block;
+    text-align: center;
+    border-top: 1px solid #0184ae;
+    border-bottom: 1px solid #0184ae;
+}
+
+#legend {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+}
+
+#legend a {
+    width: 100%;
+    line-height: 50px;
+    display: block;
+    text-align: center;
+    border-top: 1px solid #0184ae;
+}
+
+/*  -----MAP CANVAS-----  */
+
+#map-canvas {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 50px;
+    margin-bottom: -50px;
+}
+
+
+/*  -----FOOTER-----  */
+
+footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    padding: 0 50px;
+    border-top: 1px solid #555555;
+    opacity: .4;
+}
+
+footer:hover {
+    opacity: 1;
+}
+
+footer p {
+    line-height: 30px;
+}
+
+
+
+
+
+
+
