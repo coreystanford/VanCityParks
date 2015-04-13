@@ -24,7 +24,7 @@ function getParkStatus() {
 
 function getCustom() {
 
-    $base_url = '../json/custom-parks.json';
+    $base_url = 'localhost/VanCityParks/json/custom-parks.json';
     $curl = curl_init($base_url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     $json_data = curl_exec($curl);
@@ -32,6 +32,26 @@ function getCustom() {
 
     $data = json_decode($json_data);
     return $data;
+}
+
+function getCustomParkInfo($id) {
+
+    $base_url = 'localhost/VanCityParks/json/custom-park-info.json';
+    $curl = curl_init($base_url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    $json_data = curl_exec($curl);
+    curl_close($curl);
+
+    $data = json_decode($json_data);
+    
+    foreach ($data as $park) {
+        if($park->park_id == $id){
+
+            return $park;
+        }
+    }
+
+    return false;
 }
 
 function getFountains() {

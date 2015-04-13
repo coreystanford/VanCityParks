@@ -42,7 +42,12 @@ function initialize() {
                         icon: redIcon,
                         title: this.name
                     });
+                    marker.set("id", this.park_id);
                     closed.push(marker);
+                    google.maps.event.addListener(marker, 'click', function() {
+                        // open the modal window
+                        markerModal.open(marker.id);
+                    });
                 } else if(this.status == "User discretion"){
                     var marker = new google.maps.Marker({
                         position: pos,
@@ -50,7 +55,12 @@ function initialize() {
                         icon: amberIcon,
                         title: this.name
                     });
+                    marker.set("id", this.park_id);
                     usable.push(marker);
+                    google.maps.event.addListener(marker, 'click', function() {
+                        // open the modal window
+                        markerModal.open(marker.id);
+                    });
                 } else {
                     var marker = new google.maps.Marker({
                         position: pos,
@@ -58,7 +68,12 @@ function initialize() {
                         icon: greenIcon,
                         title: this.name
                     });
+                    marker.set("id", this.park_id);
                     open.push(marker);
+                    google.maps.event.addListener(marker, 'click', function() {
+                        // open the modal window
+                        markerModal.open(marker.id);
+                    });
                 }
             });
             
@@ -234,5 +249,9 @@ function initialize() {
     });
 
 }
+
+// ---------------------------------- //
+// ---- ON LOAD, CALL initialize ---- //
+// ---------------------------------- //
 
 google.maps.event.addDomListener(window, 'load', initialize);

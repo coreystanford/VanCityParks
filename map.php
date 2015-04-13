@@ -8,6 +8,7 @@
 	    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+	    <script src="./js/marker-modal.js"></script>
 	    <script src="./js/map.js"></script>
 	</head>
 		
@@ -25,7 +26,7 @@
 
 			<div id="options">
 				<a href="#" class="selected" rel="on" id="green"><span>Open</span></a>
-				<a href="#" class="selected" rel="on" id="amber"><span>Usable</span></a>
+				<a href="#" class="selected" rel="on" id="amber"><span>User Discretion</span></a>
 				<a href="#" class="selected" rel="on" id="red"><span>Closed</span></a>
 			</div>
 
@@ -36,7 +37,7 @@
 			<div id="legend">
 				<a href="#" rel="off"><span>Legend</span></a>
 			</div>
-
+			<div id="legend-modal"></div>
 		</nav>
 
 		<div id="wrapper">
@@ -51,8 +52,12 @@
 
 		</div>
 
-		<div id="modal"></div>
-	
+		<div id="marker-modal"></div>
+
+
+		<script src="./js/legend-modal.js"></script>
+		<script src="./js/legend-init.js"></script>
+		
 	</body>
 
 </html>
