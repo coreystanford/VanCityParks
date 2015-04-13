@@ -116,8 +116,12 @@ header {
     float: left;
     padding: 0 30px;
     border-right: 1px solid #0184ae;
-    cursor: default;
+    cursor: pointer;
 }
+
+    #menu:hover {
+        background: #f8f8f8;
+    }
     
     #logoblue {
         font-weight: 500;
@@ -141,6 +145,10 @@ header {
     background: #0184ae;
     color: #fff;
 }
+
+    #search:hover {
+        background: #026f92;
+    }
 
 /*  -----OFF-CANVAS NAV-----  */
 
@@ -168,6 +176,10 @@ header {
     border-bottom: 1px solid #0184ae;
 }
 
+    #options a:hover {
+        background: #f8f8f8;
+    }
+
 #water {
     margin-top: 75px;
 }
@@ -180,6 +192,10 @@ header {
     border-top: 1px solid #0184ae;
     border-bottom: 1px solid #0184ae;
 }
+
+    #water a:hover {
+        background: #f8f8f8;
+    }
 
 #legend {
     position: absolute;
@@ -196,6 +212,10 @@ header {
     text-align: center;
     border-top: 1px solid #0184ae;
 }
+    
+    #legend a:hover {
+        background: #f8f8f8;
+    }
 
 /*  -----MAP CANVAS-----  */
 

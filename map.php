@@ -24,19 +24,18 @@
 		<nav id="off-canvas">
 
 			<div id="options">
-				<a href="#" id="all"><span>All Parks</span></a>
-				<a href="#" id="green"><span>Open</span></a>
-				<a href="#" id="amber"><span>Usable</span></a>
-				<a href="#" id="red"><span>Closed</span></a>
-				<a href="#" id="blue"><span>Undefined</span></a>
+				<a href="#"  rel="on" id="all"><span>All Parks</span></a>
+				<a href="#"  rel="on" id="green"><span>Open</span></a>
+				<a href="#"  rel="on" id="amber"><span>Usable</span></a>
+				<a href="#"  rel="on" id="red"><span>Closed</span></a>
 			</div>
 
 			<div id="water">
-				<a href="#" id="fountains"><span>Water Fountains</span></a>
+				<a href="#" id="fountains" rel="off"><span>Water Fountains</span></a>
 			</div>
 
 			<div id="legend">
-				<a href="#"><span>Legend</span></a>
+				<a href="#" rel="off"><span>Legend</span></a>
 			</div>
 
 		</nav>

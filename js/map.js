@@ -10,6 +10,13 @@ function initialize() {
     map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
 
+    var greenIcon = "images/green.png";
+    var redIcon = "images/red.png";
+    var amberIcon = "images/amber.png";
+    var open = [];
+    var usable = [];
+    var closed = [];
+
     //Carry out an Ajax request.
     $.ajax({
         url: 'json/custom-parks.json',
@@ -19,44 +26,79 @@ function initialize() {
             $.each(data, function(){
                 //Plot the location as a marker
                 var pos = new google.maps.LatLng(this.lat, this.lon); 
-                new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    title: this.name
-                });
+
+                if(this.status == "Closed"){
+                    var marker = new google.maps.Marker({
+                        position: pos,
+                        map: map,
+                        icon: redIcon,
+                        title: this.name
+                    });
+                    closed.push(marker);
+                } else if(this.status == "User discretion"){
+                    var marker = new google.maps.Marker({
+                        position: pos,
+                        map: map,
+                        icon: amberIcon,
+                        title: this.name
+                    });
+                    usable.push(marker);
+                } else {
+                    var marker = new google.maps.Marker({
+                        position: pos,
+                        map: map,
+                        icon: greenIcon,
+                        title: this.name
+                    });
+                    open.push(marker);
+                }
             });
+            
         }
     });
 
-}
+    var fountainIcon = "images/fountain.png";
 
-google.maps.event.addDomListener(window, 'load', initialize);
+    var fountain = [];
 
-$( document ).ready(function() {
-    
     $('#off-canvas').on('click', '#water', function(e){
 
         e.preventDefault();
 
-        $.ajax({
-            url: 'json/custom-fountains.json',
-            dataType: 'json',
-            success:function(data){
-                //Loop through each location.
-                $.each(data, function(){
-                    //Plot the location as a marker
-                    var pos = new google.maps.LatLng(this.lat, this.lon);
-                    new google.maps.Marker({
-                        position: pos,
-                        map: map,
-                        title: this.type
+        $water = $('#water a').attr('rel');
+
+        if($water == 'off'){
+
+            $.ajax({
+                url: 'json/custom-fountains.json',
+                dataType: 'json',
+                success:function(data){
+                    //Loop through each location.
+                    $.each(data, function(){
+                        //Plot the location as a marker
+                        var pos = new google.maps.LatLng(this.lat, this.lon);
+                        var marker = new google.maps.Marker({
+                            position: pos,
+                            map: map,
+                            icon: fountainIcon,
+                            title: this.type
+                        });
+                        fountain.push(marker);
                     });
-                });
-            }
-        });
+                }
+            });
+            $('#water a').attr('rel', 'on');
+
+        } else {
+            for (var i = 0; i <= fountain.length; i++) {
+                fountain[i].setMap(null);
+            };
+
+            $('#water a').attr('rel', 'off');
+        }
 
     });
-
+    
     $menuWidth = $('#menu').outerWidth();
 
     $('header').on('click', '#menu', function(e){
@@ -87,6 +129,6 @@ $( document ).ready(function() {
 
     });
 
-    
+}
 
-});
+google.maps.event.addDomListener(window, 'load', initialize);
