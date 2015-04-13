@@ -3,7 +3,7 @@
 header("Content-Type: application/json");
 
 include 'functions.php';
-include 'park.php';
+include 'parkinfo.php';
 
 $facilities = getParks();
 $parkStatus = getParkStatus();
