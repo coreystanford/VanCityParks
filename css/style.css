@@ -302,7 +302,13 @@ footer p {
 
     #modal-content {
         margin: 50px auto;
-        width: 90%;
+        width: 95%;
+    }
+
+    #marker-modal-content {
+        margin: 50px auto;
+        min-width: 460px;
+        width: 50%;
     }
 
 .marker {
@@ -341,3 +347,11 @@ footer p {
 .facilities {
     padding: 20px;
 }
+
+    @media only screen and (max-width: 525px)
+    {
+        #marker-modal-content {
+            min-width: 90%;
+        }
+    }
+

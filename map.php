@@ -6,6 +6,7 @@
 		<title>VanCityParks</title>
 	    <link rel="stylesheet" type="text/css" href="./css/style.css">
 	    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  		<link rel="shortcut icon" type="image/png" href="./images/green.png">
 	    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	    <script src="./js/marker-modal.js"></script>

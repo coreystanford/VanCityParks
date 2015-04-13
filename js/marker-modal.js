@@ -7,7 +7,7 @@ var markerModal = (function () {
         open: function (id) {
 
             // Send AJAX Request
-            console.log(id);
+
             $.ajax({
                 type: "POST",
                 url: "marker-modal.php",
@@ -23,7 +23,7 @@ var markerModal = (function () {
                     // On click of #modal-close, execute close function
                     $('body').on('click', '#modal-close', function (e) {
                         e.preventDefault();
-                        $('#modal-content').remove();
+                        $('#marker-modal-content').remove();
                         // Change CSS back to initial state of hidden
                         $('#marker-modal').css('display', 'none');
                     });
@@ -32,7 +32,7 @@ var markerModal = (function () {
                     $(document).on( 'keydown', function ( e ) {
                         if ( e.keyCode === 27 ) {
                             e.preventDefault();
-                            $('#modal-content').remove();
+                            $('#marker-modal-content').remove();
                             // Change CSS back to initial state of hidden
                             $('#marker-modal').css('display', 'none');
                         }
@@ -49,7 +49,7 @@ var markerModal = (function () {
         close: function () {
 
             // Remove content from the inner tag
-            $('#modal-content').remove();
+            $('#marker-modal-content').remove();
             // Change CSS back to initial state of hidden
             $('#marker-modal').css('display', 'none');
 

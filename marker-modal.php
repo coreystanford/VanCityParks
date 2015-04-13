@@ -6,7 +6,7 @@ $park = getCustomParkInfo($_POST['id']);
 
 ?>
 
-<div id="modal-content">
+<div id="marker-modal-content">
 
 	<button role="button" id="modal-close"><i class="fa fa-times"></i></button>
 
