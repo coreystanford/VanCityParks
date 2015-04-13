@@ -24,10 +24,9 @@
 		<nav id="off-canvas">
 
 			<div id="options">
-				<a href="#"  rel="on" id="all"><span>All Parks</span></a>
-				<a href="#"  rel="on" id="green"><span>Open</span></a>
-				<a href="#"  rel="on" id="amber"><span>Usable</span></a>
-				<a href="#"  rel="on" id="red"><span>Closed</span></a>
+				<a href="#" class="selected" rel="on" id="green"><span>Open</span></a>
+				<a href="#" class="selected" rel="on" id="amber"><span>Usable</span></a>
+				<a href="#" class="selected" rel="on" id="red"><span>Closed</span></a>
 			</div>
 
 			<div id="water">

@@ -197,6 +197,12 @@ header {
         background: #f8f8f8;
     }
 
+.selected {
+    border-right: 5px solid #0184ae;
+    background: rgba(1, 132, 174, 0.1);
+    margin-left: -5px;
+}
+
 #legend {
     position: absolute;
     right: 0;
