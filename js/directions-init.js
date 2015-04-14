@@ -2,9 +2,10 @@ var directions = (function () {
 
     return {
 
-	    initialize: function (marker, clientPos) {
+	    initialize: function (marker, clientPos, transitMode) {
 
 	    	var markerArray = [];
+
             // Instantiate a directions service.
             directionsService = new google.maps.DirectionsService();
             console.log(marker.position);
@@ -25,9 +26,13 @@ var directions = (function () {
             // Instantiate an info window to hold step text.
             stepDisplay = new google.maps.InfoWindow();
 
-            calcRoute();
+            if(!transitMode){
+            	transitMode = "DRIVING";
+            }
 
-            function calcRoute() {
+            calcRoute(transitMode);
+
+            function calcRoute(transitMode) {
 
               // First, remove any existing markers from the map.
               for (var i = 0; i < markerArray.length; i++) {
@@ -41,21 +46,20 @@ var directions = (function () {
               // a DirectionsRequest using WALKING directions.
               var start = clientPos;
               var end = latlon;
+
               var request = {
                   origin: start,
                   destination: end,
-                  travelMode: google.maps.TravelMode.WALKING
+                  travelMode: google.maps.TravelMode[transitMode]
               };
 
               // Route the directions and pass the response to a
               // function to create markers for each step.
               directionsService.route(request, function(response, status) {
                 if (status == google.maps.DirectionsStatus.OK) {
-                  var warnings = document.getElementById('warnings_panel');
-                  warnings.innerHTML = '<strong>Travel time: ' + response.routes[0].legs[0].duration.text + '</strong>';
+                  var duration = document.getElementById('duration');
+                  duration.innerHTML = '<p>' + response.routes[0].legs[0].duration.text + '</p>';
                   directionsDisplay.setDirections(response);
-                  console.log(response);
-                  
                 }
               });
             }

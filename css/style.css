@@ -289,7 +289,7 @@ footer p {
         border: none;
         outline: none;
         position: fixed;
-        top: 310px;
+        top: 55px;
         right: 20px;
         background: #fff;
         color: #0184ae;
@@ -322,6 +322,12 @@ footer p {
 
     #marker-modal-content {
         margin: 50px auto;
+        min-width: 460px;
+        width: 50%;
+    }
+
+    #marker-title {
+        margin: 30px auto 10px;
         min-width: 460px;
         width: 50%;
     }
@@ -376,6 +382,41 @@ footer p {
     color: #8ecd38;
 }
 
+.map-info {
+    margin-top: -50px;
+    height: 50px;
+}
+
+#duration {
+    float: left;
+    line-height: 50px;
+}
+
+#duration p {
+    font-weight: 700;
+    border-top: 5px solid #0184ae;
+    background: rgba(1, 132, 174, 0.1);
+    padding: 15px 10px;
+}
+
+#map-options {
+    float: left;
+    line-height: 50px;
+    border-top: 5px solid #0184ae;
+}
+
+#map-options span {
+    cursor: pointer;
+    padding: 0 10px;
+    display: inline-block;
+    width: 28px;
+    text-align: center;
+}
+
+.active {
+    background: rgba(1, 132, 174, 0.1);
+}
+
 .facilities {
     padding: 20px;
 }
@@ -385,5 +426,6 @@ footer p {
         #marker-modal-content {
             min-width: 90%;
         }
+
     }
 

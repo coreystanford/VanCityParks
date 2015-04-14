@@ -6,13 +6,7 @@ $park = getCustomParkInfo($_POST['id']);
 
 ?>
 
-<div id="marker-map-canvas"></div>
-
-<div id="marker-modal-content">
-
-	<button role="button" id="modal-close"><i class="fa fa-times"></i></button>
-	<div id="warnings_panel" style="width:100%;height:10%;text-align:center"></div>
-	
+<div id="marker-title">
 	
 	<h1 class="title"><?php echo $park->name; ?></h1>
 
@@ -25,6 +19,28 @@ $park = getCustomParkInfo($_POST['id']);
 	<?php endif ?>
 
 	<h3><a href="<?php echo $park->neighbourhoodURL; ?>" class="neighbourhood" target="_blank"><?php echo $park->neighbourhood; ?></a></h3>
+
+</div>
+
+<div id="marker-map-canvas"></div>
+
+<div id="marker-modal-content">
+
+	<button role="button" id="modal-close"><i class="fa fa-times"></i></button>
+
+
+	<div class="map-info">
+
+		<div id="map-options">
+			<span rel="DRIVING"><i class="fa fa-car"></i></span>
+		    <span rel="WALKING"><i class="fa fa-street-view"></i></span>
+		    <span rel="BICYCLING"><i class="fa fa-bicycle"></i></span>
+		    <span rel="TRANSIT"><i class="fa fa-bus"></i></span>
+		</div>
+
+		<div id="duration"></div>
+
+	</div>
 
 	<div class="facilities">
 		<?php foreach ($park->parkFacilities as $facility): ?>

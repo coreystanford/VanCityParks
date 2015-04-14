@@ -35,6 +35,17 @@ var markerModal = (function () {
                         
                     }
 
+                    $('#map-options span:eq(0)').addClass('active');
+
+                    $('#map-options span').each(function(){
+                        $(this).on('click', function(){
+                            transitMode = $(this).attr('rel');
+                            $('#map-options span').removeClass('active');
+                            $(this).addClass('active');
+                            directions.initialize(marker, clientPos, transitMode);
+                        });
+                    });
+
                     // On click of #modal-close, execute close function
                     $('body').on('click', '#modal-close', function (e) {
                         e.preventDefault();
