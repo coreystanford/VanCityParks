@@ -52,11 +52,11 @@ var directions = (function () {
               directionsService.route(request, function(response, status) {
                 if (status == google.maps.DirectionsStatus.OK) {
                   var warnings = document.getElementById('warnings_panel');
-                  warnings.innerHTML = '<b>' + response.routes[0].warnings + '</b>';
+                  warnings.innerHTML = '<strong>Travel time: ' + response.routes[0].legs[0].duration.text + '</strong>';
                   directionsDisplay.setDirections(response);
                   showSteps(response);
                   console.log(response);
-                  warnings.innerHTML += response.routes[0].legs[0].duration.text;
+                  
                 }
               });
             }
