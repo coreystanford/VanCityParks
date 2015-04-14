@@ -19,7 +19,7 @@ var modal = (function () {
                     });
 
                     // On click of #modal-close, execute close function
-                    $('#off-canvas').on('click', '#modal-close', function (e) {
+                    $('#off-canvas').on('click', '#legend-modal-close', function (e) {
                         e.preventDefault();
                         modal.close();
                     });

@@ -1,6 +1,6 @@
 <div id="modal-content">
 
-	<button role="button" id="modal-close"><i class="fa fa-times"></i></button>
+	<button role="button" id="legend-modal-close"><i class="fa fa-times"></i></button>
 
 	<div class="marker">
 		<img src="images/green.png">

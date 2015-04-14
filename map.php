@@ -38,7 +38,9 @@
 			<div id="legend">
 				<a href="#" rel="off"><span>Legend</span></a>
 			</div>
+
 			<div id="legend-modal"></div>
+			
 		</nav>
 
 		<div id="wrapper">
@@ -54,6 +56,7 @@
 			<div id="marker-modal"></div>
 
 		</div>
+
 		<script src="./js/directions-init.js"></script>
 		<script src="./js/legend-modal.js"></script>
 		<script src="./js/legend-init.js"></script>
