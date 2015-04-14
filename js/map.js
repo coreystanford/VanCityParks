@@ -14,9 +14,9 @@ function initialize() {
     map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
 
-    // ----------------------------------- //
-    // ---- INITIAL MARKERS POSITIONS ---- //
-    // ----------------------------------- //
+    // ---------------------------------- //
+    // ---- INITIAL MARKER POSITIONS ---- //
+    // ---------------------------------- //
 
     var greenIcon = "images/green.png";
     var redIcon = "images/red.png";
@@ -46,7 +46,7 @@ function initialize() {
                     closed.push(marker);
                     google.maps.event.addListener(marker, 'click', function() {
                         // open the modal window
-                        markerModal.open(marker.id);
+                        markerModal.open(marker, clientPos);
                     });
                 } else if(this.status == "User discretion"){
                     var marker = new google.maps.Marker({
@@ -59,7 +59,7 @@ function initialize() {
                     usable.push(marker);
                     google.maps.event.addListener(marker, 'click', function() {
                         // open the modal window
-                        markerModal.open(marker.id);
+                        markerModal.open(marker, clientPos);
                     });
                 } else {
                     var marker = new google.maps.Marker({
@@ -72,13 +72,49 @@ function initialize() {
                     open.push(marker);
                     google.maps.event.addListener(marker, 'click', function() {
                         // open the modal window
-                        markerModal.open(marker.id);
+                        markerModal.open(marker, clientPos);
                     });
                 }
             });
             
         }
     });
+
+    // ----------------------------- //
+    // ---- GET CLIENT LOCATION ---- //
+    // ----------------------------- //
+
+    var clientPos = "";
+
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            clientPos = new google.maps.LatLng(position.coords.latitude,
+                                            position.coords.longitude);
+
+        }, function() {
+          handleNoGeolocation(true);
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleNoGeolocation(false);
+    }
+
+    function handleNoGeolocation(errorFlag) {
+        if (errorFlag) {
+            var content = 'Error: The Geolocation service failed.';
+        } else {
+            var content = 'Error: Your browser doesn\'t support geolocation.';
+        }
+
+      var options = {
+        map: map,
+        position: new google.maps.LatLng(49.2569684,-123.1239135),
+        content: content
+      };
+
+      var infowindow = new google.maps.InfoWindow(options);
+      map.setCenter(options.position);
+    }
 
     // ------------------------------ //
     // ---- SHOW/HIDE OPEN PARKS ---- //

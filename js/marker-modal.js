@@ -4,14 +4,14 @@ var markerModal = (function () {
 
         // Open modal window
 
-        open: function (id) {
+        open: function (marker, clientPos) {
 
             // Send AJAX Request
 
             $.ajax({
                 type: "POST",
                 url: "marker-modal.php",
-                data: {id: id},
+                data: {id: marker.id},
                 success:function(response){
 
                     // Add the response from the server to the HTML
@@ -19,6 +19,21 @@ var markerModal = (function () {
                     $('#marker-modal').css({
                         display: 'block'
                     });
+
+                    if(clientPos){
+
+                        directions.initialize(marker, clientPos);
+
+                    } else {
+
+                        var latlon = new google.maps.LatLng(marker.position.k, marker.position.D);
+                        var mapOptions = {
+                          zoom: 17,
+                          center: latlon
+                        }
+                        map = new google.maps.Map(document.getElementById('marker-map-canvas'), mapOptions);
+                        
+                    }
 
                     // On click of #modal-close, execute close function
                     $('body').on('click', '#modal-close', function (e) {

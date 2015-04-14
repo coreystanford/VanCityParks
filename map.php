@@ -51,11 +51,10 @@
 
 			</footer>
 
+			<div id="marker-modal"></div>
+
 		</div>
-
-		<div id="marker-modal"></div>
-
-
+		<script src="./js/directions-init.js"></script>
 		<script src="./js/legend-modal.js"></script>
 		<script src="./js/legend-init.js"></script>
 		

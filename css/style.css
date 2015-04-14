@@ -233,6 +233,13 @@ header {
     margin-bottom: -50px;
 }
 
+#marker-map-canvas {
+    height: 200px;
+    width: 80%
+    margin: 20px auto;
+    padding: 0px;
+}
+
 
 /*  -----FOOTER-----  */
 
@@ -283,8 +290,8 @@ footer p {
     #modal-close {
         border: none;
         outline: none;
-        position: absolute;
-        top: 10px;
+        position: fixed;
+        top: 60px;
         right: 20px;
         background: #fff;
         color: #0184ae;
@@ -329,19 +336,36 @@ footer p {
     line-height: 40px;
 }
 
+.title {
+    display: inline-block;
+    margin-right: 20px;
+}
+
 .closed {
     color: #cf2227;
     font-weight: 700;
+    display: inline-block;
 }
 
 .usable {
     color: #e8d62a;
     font-weight: 700;
+    display: inline-block;
 }
 
 .open {
     color: #92c847;
     font-weight: 700;
+    display: inline-block;
+}
+
+.neighbourhood {
+    padding: 10px;
+    display: block;
+}
+
+.neighbourhood:hover {
+    color: #8ecd38;
 }
 
 .facilities {

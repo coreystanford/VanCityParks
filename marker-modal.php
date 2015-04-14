@@ -9,8 +9,11 @@ $park = getCustomParkInfo($_POST['id']);
 <div id="marker-modal-content">
 
 	<button role="button" id="modal-close"><i class="fa fa-times"></i></button>
+	<div id="warnings_panel" style="width:100%;height:10%;text-align:center"></div>
+	<div id="marker-map-canvas"></div>
+	
+	<h1 class="title"><?php echo $park->name; ?></h1>
 
-	<h1><?php echo $park->name; ?></h1>
 	<?php if ($park->status == 'Closed'): ?>
 		<h2 class="closed">Closed</h2>
 	<?php elseif ($park->status == 'User discretion'): ?>
@@ -19,10 +22,12 @@ $park = getCustomParkInfo($_POST['id']);
 		<h2 class="open">Open</h2>
 	<?php endif ?>
 
+	<h3><a href="<?php echo $park->neighbourhoodURL; ?>" class="neighbourhood" target="_blank"><?php echo $park->neighbourhood; ?></a></h3>
+
 	<div class="facilities">
 		<?php foreach ($park->parkFacilities as $facility): ?>
 			
-			<h3><?php echo $facility; ?></h3>
+			<h4><?php echo $facility; ?></h4>
 
 		<?php endforeach ?>
 	</div>
