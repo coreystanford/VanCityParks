@@ -32,18 +32,33 @@ var markerModal = (function () {
                           center: latlon
                         }
                         map = new google.maps.Map(document.getElementById('marker-map-canvas'), mapOptions);
-                        
+
+                        var start = document.getElementById('start');
+                        start.innerHTML = "<input type='text' name='start-location' id='start-location' placeholder='Starting Location'><button role=button id='start-btn'><i class='fa fa-search'></i></button>";
+
                     }
 
                     $('#map-options span:eq(0)').addClass('active');
-
                     $('#map-options span').each(function(){
                         $(this).on('click', function(){
                             transitMode = $(this).attr('rel');
+                            startAddress = $('#start-location').val();
                             $('#map-options span').removeClass('active');
                             $(this).addClass('active');
+                            if(startAddress){
+                                clientPos = startAddress;
+                            }
                             directions.initialize(marker, clientPos, transitMode);
                         });
+                    });
+
+                    $('#start-btn').on('click', function(){
+                        clientPos = $('#start-location').val();
+                        active = $('#map-options span').closest('.active');
+                        
+                        transitMode = active.attr('rel');
+
+                        directions.initialize(marker, clientPos, transitMode);
                     });
 
                     // On click of #modal-close, execute close function

@@ -20,6 +20,11 @@ $park = getCustomParkInfo($_POST['id']);
 
 	<h3><a href="<?php echo $park->neighbourhoodURL; ?>" class="neighbourhood" target="_blank"><?php echo $park->neighbourhood; ?></a></h3>
 
+	<div id="start">
+		<input type='text' name='start-location' id='start-location' placeholder='Starting Location'>
+		<button role=button id='start-btn'><i class='fa fa-search'></i></button>
+	</div>
+
 </div>
 
 <div id="marker-map-canvas"></div>

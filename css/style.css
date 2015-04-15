@@ -330,6 +330,7 @@ footer p {
         margin: 30px auto 10px;
         min-width: 460px;
         width: 50%;
+        position: relative;
     }
 
 .marker {
@@ -374,8 +375,8 @@ footer p {
 }
 
 .neighbourhood {
-    padding: 10px;
-    display: block;
+    padding: 10px 0;
+    display: inline-block;
 }
 
 .neighbourhood:hover {
@@ -419,6 +420,28 @@ footer p {
 
 .facilities {
     padding: 20px;
+}
+
+#start {
+    position: absolute;
+    right: 20px;
+    bottom: 12px;
+}
+
+#start input[type="text"] {
+    font-size: .9rem;
+}
+
+#start button {
+    border: none;
+    background: #0184ae;
+    color: #fff;
+    cursor: pointer;
+    font-size: .9rem;
+}
+
+#start button:hover {
+    background: #026f92;
 }
 
     @media only screen and (max-width: 525px)
