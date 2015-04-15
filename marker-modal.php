@@ -47,12 +47,44 @@ $park = getCustomParkInfo($_POST['id']);
 
 	</div>
 
-	<div class="facilities">
-		<?php foreach ($park->parkFacilities as $facility): ?>
-			
-			<h4><?php echo $facility; ?></h4>
+	<div class="info">
 
-		<?php endforeach ?>
+		<?php if ($park->parkFacilities): ?>
+			<h3>Facilities</h3>
+			<div class="facilities">
+				<?php foreach ($park->parkFacilities as $facility): ?>
+					
+					<h4><?php echo $facility; ?></h4>
+
+				<?php endforeach ?>
+			</div>
+		<?php endif ?>
+
+		<?php if ($park->specialFeatures): ?>
+			<h3>Special Features</h3>
+			<div class="special">
+				<?php foreach ($park->specialFeatures as $spec): ?>
+					
+					<h4><?php echo $spec; ?></h4>
+
+				<?php endforeach ?>
+			</div>
+		<?php endif ?>
+
+		<?php if ($park->washrooms): ?>
+				<h3>Washrooms</h3>
+				<?php foreach ($park->washrooms as $washroom): ?>
+
+						<div class="washroom">
+							<h4>Location: <?php echo $washroom->location; ?></h4>
+							<h4>Summer Hours: <?php echo $washroom->sum_hours; ?></h4>
+							<h4>Winter Hours: <?php echo $washroom->wint_hours; ?></h4>
+							<h4>Notes: <?php echo $washroom->notes; ?></h4>
+						</div>
+
+				<?php endforeach ?>
+		<?php endif ?>
+
 	</div>
 
 </div><!-- end modal-content -->

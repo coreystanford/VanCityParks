@@ -395,7 +395,7 @@ footer p {
 
 #duration p {
     font-weight: 700;
-    border-top: 5px solid #0184ae;
+    border-top: 3px solid #0184ae;
     background: rgba(1, 132, 174, 0.1);
     padding: 15px 10px;
 }
@@ -403,7 +403,7 @@ footer p {
 #map-options {
     float: left;
     line-height: 50px;
-    border-top: 5px solid #0184ae;
+    border-top: 3px solid #0184ae;
 }
 
 #map-options span {
@@ -423,8 +423,16 @@ footer p {
     background: rgba(1, 132, 174, 0.1);
 }
 
-.facilities {
+.info {
+    padding: 10px;
+}
+
+.facilities, .special {
     padding: 20px;
+}
+
+.washroom {
+    padding: 10px 20px;
 }
 
 #start {
@@ -451,7 +459,7 @@ footer p {
 
     @media only screen and (max-width: 525px)
     {
-        #marker-modal-content {
+        #marker-modal-content, #marker-title {
             min-width: 90%;
         }
 

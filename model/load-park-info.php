@@ -23,6 +23,18 @@ foreach($facilities as $facility){
 		$pfs[] = $pf;
 	}
 
+	$specfeatures = array();
+	foreach($facility->Facilities->SpecialFeature as $spec){
+		$sf = (string)$spec;
+		$specfeatures[] = $sf;
+	}
+
+	$washrooms = array();
+	foreach($facility->Facilities->Washroom as $wash){
+		$loc = ['location' => (string)$wash->Location, 'sum_hours' => (string)$wash->SummerHours, 'wint_hours' => (string)$wash->WinterHours, 'notes' => (string)$wash->Notes];
+		$washrooms[] = $loc;
+	}
+
 	$coordinates= explode(",", (string)$facility->GoogleMapDest);
 	$lat = $coordinates[0];
 	$lon = $coordinates[1];
@@ -34,7 +46,7 @@ foreach($facilities as $facility){
 		}
 	}
 
-	$park = new ParkInfo($park_id, $name, $lat, $lon, $status, $neigh, $neighURL, $pfs);
+	$park = new ParkInfo($park_id, $name, $lat, $lon, $status, $neigh, $neighURL, $pfs, $specfeatures, $washrooms);
 	$parks[] = $park;
 }
 
