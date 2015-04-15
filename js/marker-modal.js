@@ -20,6 +20,7 @@ var markerModal = (function () {
                         display: 'block'
                     });
 
+                    // if client position is known, initialize, otherwise load a standard map
                     if(clientPos){
 
                         directions.initialize(marker, clientPos);
@@ -32,9 +33,6 @@ var markerModal = (function () {
                           center: latlon
                         }
                         map = new google.maps.Map(document.getElementById('marker-map-canvas'), mapOptions);
-
-                        var start = document.getElementById('start');
-                        start.innerHTML = "<input type='text' name='start-location' id='start-location' placeholder='Starting Location'><button role=button id='start-btn'><i class='fa fa-search'></i></button>";
 
                     }
 

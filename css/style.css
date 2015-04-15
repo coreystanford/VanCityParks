@@ -234,7 +234,7 @@ header {
 }
 
 #marker-map-canvas {
-    height: 250px;
+    height: 275px;
     margin: auto;
     padding: 0px;
 }
@@ -412,6 +412,11 @@ footer p {
     display: inline-block;
     width: 28px;
     text-align: center;
+    float: left;
+}
+
+#map-options span:hover {
+    background: #f8f8f8;
 }
 
 .active {
