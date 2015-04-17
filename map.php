@@ -28,7 +28,7 @@
 			<div id="options">
 				<a href="#" class="selected" rel="on" id="green"><span>Open</span></a>
 				<a href="#" class="selected" rel="on" id="amber"><span>User Discretion</span></a>
-				<a href="#" class="selected" rel="on" id="red"><span>Closed</span></a>
+				<a href="#" class="selected" rel="on" id="red"><span>Closures</span></a>
 			</div>
 
 			<div id="water">

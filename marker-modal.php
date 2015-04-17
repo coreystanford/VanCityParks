@@ -11,7 +11,7 @@ $park = getCustomParkInfo($_POST['id']);
 	<h1 class="title"><?php echo $park->name; ?></h1>
 
 	<?php if ($park->status == 'Closed'): ?>
-		<h2 class="closed">Closed</h2>
+		<h2 class="closed">Closures</h2>
 	<?php elseif ($park->status == 'User discretion'): ?>
 		<h2 class="usable">User Discretion</h2>
 	<?php else: ?>
@@ -71,7 +71,7 @@ $park = getCustomParkInfo($_POST['id']);
 			</div>
 		<?php endif ?>
 
-		<?php if ($park->washrooms): ?>
+		<?php if ($park->washrooms[0]->location): ?>
 				<h3>Washrooms</h3>
 				<?php foreach ($park->washrooms as $washroom): ?>
 

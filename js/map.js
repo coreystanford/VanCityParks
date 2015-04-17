@@ -80,6 +80,33 @@ function initialize() {
         }
     });
 
+    // ----------------------- //
+    // ---- GET FOUNTAINS ---- //
+    // ----------------------- //
+
+    var fountainIcon = "images/fountain.png";
+    var fountain = [];
+
+    $.ajax({
+        url: 'json/custom-fountains.json',
+        dataType: 'json',
+        success:function(data){
+            //Loop through each location.
+            $.each(data, function(){
+                //Plot the location as a marker
+                var pos = new google.maps.LatLng(this.lat, this.lon);
+                var marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    icon: fountainIcon,
+                    title: this.type,
+                    visible: false
+                });
+                fountain.push(marker);
+            });
+        }
+    });
+
     // ----------------------------- //
     // ---- GET CLIENT LOCATION ---- //
     // ----------------------------- //
@@ -197,12 +224,9 @@ function initialize() {
 
     });
 
-    // ---------------------------------- //
-    // ---- GET, SHOW/HIDE FOUNTAINS ---- //
-    // ---------------------------------- //
-
-    var fountainIcon = "images/fountain.png";
-    var fountain = [];
+    // ----------------------------- //
+    // ---- SHOW/HIDE FOUNTAINS ---- //
+    // ----------------------------- //
 
     $('#off-canvas').on('click', '#water', function(e){
 
@@ -210,33 +234,10 @@ function initialize() {
         $water = $('#water a').attr('rel');
 
         if($water == 'off'){
+            for (var i = 0; i < fountain.length; i++) {
+                fountain[i].setVisible(true);
+            };
 
-            if(fountain.length <= 0){
-
-                $.ajax({
-                    url: 'json/custom-fountains.json',
-                    dataType: 'json',
-                    success:function(data){
-                        //Loop through each location.
-                        $.each(data, function(){
-                            //Plot the location as a marker
-                            var pos = new google.maps.LatLng(this.lat, this.lon);
-                            var marker = new google.maps.Marker({
-                                position: pos,
-                                map: map,
-                                icon: fountainIcon,
-                                title: this.type
-                            });
-                            fountain.push(marker);
-                        });
-                    }
-                });
-                
-            } else {
-                for (var i = 0; i < fountain.length; i++) {
-                    fountain[i].setVisible(true);
-                };
-            }
             $('#water a').attr('rel', 'on');
             $('#water a').addClass('selected');
         } else {
@@ -291,3 +292,4 @@ function initialize() {
 // ---------------------------------- //
 
 google.maps.event.addDomListener(window, 'load', initialize);
+

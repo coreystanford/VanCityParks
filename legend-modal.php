@@ -12,7 +12,7 @@
 	</div>
 	<div class="marker">
 		<img src="images/red.png">
-		<h4>Closed</h4>
+		<h4>Closures</h4>
 	</div>
 	<div class="marker">
 		<img src="images/fountain.png">
