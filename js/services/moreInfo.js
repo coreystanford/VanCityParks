@@ -1,13 +1,13 @@
 app.factory('moreInfo', ['$http', function($http) {
 
-	var doSearch = function(id, url){
+	var getPark = function(id, url){
 		console.log(id);
 
 		return $http.post( url, { id: id } );
 	}
 
 	return {
-		doSearchRequest: function(id){return doSearch(id, 'moreInfo.php'); },
+		getParkRequest: function(id){return getPark(id, 'moreInfo.php'); },
 	};
 
 }]);

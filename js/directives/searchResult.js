@@ -1,9 +1,7 @@
 app.directive('searchResult', function(){
   return {
     restrict: 'E',
-    scope: {
-    	info: "="
-    },
+    scope: true,
     templateUrl: 'js/directives/searchResult.php'
   };
 });

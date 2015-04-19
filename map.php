@@ -96,6 +96,7 @@
 	    <script src="js/directives/parkInfo.js"></script>
 	    <!-- Services -->
 	    <script src="./js/services/search.js"></script>	
+	    <script src="./js/services/moreInfo.js"></script>	
 		
 	</body>
 

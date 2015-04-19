@@ -233,7 +233,7 @@ header {
     margin-bottom: -50px;
 }
 
-#marker-map-canvas {
+#marker-map-canvas, #info-map-canvas {
     height: 275px;
     margin: auto;
     padding: 0px;
@@ -307,6 +307,19 @@ footer p {
         color: #0184ae;
     }
 
+    #info-close {
+        border: none;
+        outline: none;
+        position: absolute;
+        top: 20px;
+        left: 25px;
+        background: #fff;
+        color: #0184ae;
+        font-size: 2rem;
+        font-size: 35px;
+    }
+
+
     #legend-modal-close {
         border: none;
         outline: none;
@@ -322,7 +335,7 @@ footer p {
             font-size: 40px;
         }
 
-        #modal-close:hover, #legend-modal-close:hover {
+        #modal-close:hover, #legend-modal-close:hover, #info-close:hover {
             color: #026f92;
             cursor: pointer;
         }
@@ -389,6 +402,7 @@ footer p {
 .neighbourhood {
     padding: 10px 0;
     display: inline-block;
+    cursor: pointer;
 }
 
 .neighbourhood:hover {
@@ -518,6 +532,14 @@ footer p {
         overflow-y: auto;
     }
 
+        .result {
+            cursor: pointer;
+        }
+
+        .result:hover {
+            color: #8ecd38;
+        }
+
     #search-map {
         height: 100%;
         margin: 0px;
@@ -530,14 +552,22 @@ footer p {
         right: 0;
         bottom: 0;
         left: 0;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        overflow-y: hidden;
     }
 
     #info-slide {
         position: absolute;
         top: 0;
-        right: 0;
         bottom: 0;
-        left: 0;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        overflow-y: auto;
     }
 
     @media only screen and (max-width: 525px)

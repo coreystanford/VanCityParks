@@ -2,7 +2,7 @@
 
 	<div ng-controller="SearchController">
 	
-		<div id="search-container">
+		<div id="search-container" ng-style="searchStyle">
 
 			<div id="left">
 
@@ -17,7 +17,7 @@
 				<div id="results-container">
 
 					<div id="results" ng-repeat="result in results">
-						<search-result info="result"></search-result>
+						<search-result></search-result>
 					</div>
 
 				</div>

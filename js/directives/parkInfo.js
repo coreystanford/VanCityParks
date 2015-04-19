@@ -1,9 +1,7 @@
 app.directive('parkInfo', function(){
   return {
     restrict: 'E',
-    scope: {
-    	info: "="
-    },
+    scope: true,
     templateUrl: 'js/directives/parkInfo.php'
   };
 });

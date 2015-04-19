@@ -1,6 +1,6 @@
-app.controller('SearchController', ['$scope', '$timeout', 'search', function($scope, $timeout, search) {
+app.controller('SearchController', ['$scope', '$timeout', 'search', 'moreInfo', function($scope, $timeout, search, moreInfo) {
 
-	var windowWidth = window.outerWidth;
+	var windowWidth = window.innerWidth;
 
 	$scope.parkInfo = false;
 	$scope.infoStyle = { "left": windowWidth,
@@ -8,19 +8,32 @@ app.controller('SearchController', ['$scope', '$timeout', 'search', function($sc
 
 	$scope.openPark = function(id){
 
-		search.doSearchRequest(id).success(function(data){
+		moreInfo.getParkRequest(id).success(function(data){
 			$scope.park = data;
+
+            var latlon = new google.maps.LatLng(data.lat, data.lon);
+            var mapOptions = {
+            	zoom: 17,
+            	center: latlon
+            }
+            map = new google.maps.Map(document.getElementById('info-map-canvas'), mapOptions);
+
+			console.log(data);
 		});
 
 		$scope.parkInfo = true;
 		$scope.infoStyle = { "left": 0 ,
 						 "right": 0 };
+		$scope.searchStyle = { "left": -windowWidth +"px",
+						 "right": windowWidth +"px"};
 	}
 
 	$scope.closePark = function(){
 		$scope.parkInfo = false;
 		$scope.infoStyle = { "left": windowWidth +"px",
 						 "right": -windowWidth +"px"};
+		$scope.searchStyle = { "left": 0 ,
+						 "right": 0 };
 	}
 
 	var map = document.getElementById("search-map");
@@ -32,7 +45,7 @@ app.controller('SearchController', ['$scope', '$timeout', 'search', function($sc
 	    center: new google.maps.LatLng(49.2569684,-123.1239135)
 	};
 
-    map = new google.maps.Map(map, mapOptions);
+    mainMap = new google.maps.Map(map, mapOptions);
 
   	var timeout;
 	$scope.$watch('search', function(query){
@@ -65,7 +78,7 @@ app.controller('SearchController', ['$scope', '$timeout', 'search', function($sc
 						if(data.status == "Closed"){
 		                    var newMarker = new google.maps.Marker({
 		                        position: pos,
-		                        map: map,
+		                        map: mainMap,
 		                        icon: redIcon,
 		                        title: data.name
 		                    });
@@ -77,7 +90,7 @@ app.controller('SearchController', ['$scope', '$timeout', 'search', function($sc
 		                } else if(data.status == "User discretion"){
 		                    var newMarker = new google.maps.Marker({
 		                        position: pos,
-		                        map: map,
+		                        map: mainMap,
 		                        icon: amberIcon,
 		                        title: data.name
 		                    });
@@ -89,7 +102,7 @@ app.controller('SearchController', ['$scope', '$timeout', 'search', function($sc
 		                } else {
 		                    var newMarker = new google.maps.Marker({
 		                        position: pos,
-		                        map: map,
+		                        map: mainMap,
 		                        icon: greenIcon,
 		                        title: data.name
 		                    });
@@ -109,7 +122,7 @@ app.controller('SearchController', ['$scope', '$timeout', 'search', function($sc
 					    $.each(markers, function (index, marker){
 					        limits.extend(marker.position);
 					    });
-					    map.fitBounds(limits);
+					    mainMap.fitBounds(limits);
 					}
 
 					autoCenter();
