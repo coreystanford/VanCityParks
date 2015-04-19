@@ -273,8 +273,20 @@ footer p {
     z-index: 3; 
 }
 
-#marker-modal {
+#marker-modal, #search-modal {
     display: none;
+    position: absolute;
+    top: 51px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    z-index: 3; 
+    overflow-x: scroll;
+}
+
+#search-modal {
+    display: block;
     position: absolute;
     top: 51px;
     right: 0;
@@ -457,18 +469,28 @@ footer p {
     background: #026f92;
 }
 
+#search-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
 #left {
-    width: 60%;
-    height: 400px;
-    float: left;
-    background: #eee;
+    position: absolute;
+    top: 0;
+    right: 40%;
+    bottom: 0;
+    left: 0;
 }
 
 #right {
-    width: 40%;
-    height: 400px;
-    float: left;
-    overflow-y: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 60%;
 }
 
     #right input[type="text"] {
@@ -480,9 +502,43 @@ footer p {
         display: block;
     }
 
+    #results-container {
+        position: absolute;
+        top: 130px;
+        right: 10%;
+        bottom: 0;
+        left: 5%;
+        overflow-y: auto;
+    }
 
+    #results {
+        width: 80%;
+        margin: 20px auto;
+        display: block;
+        overflow-y: auto;
+    }
 
+    #search-map {
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
 
+    #search-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    #info-slide {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
 
     @media only screen and (max-width: 525px)
     {
