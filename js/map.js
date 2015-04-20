@@ -34,41 +34,29 @@ function initialize() {
             $.each(data, function(){
                 //Plot the location as a marker
                 var pos = new google.maps.LatLng(this.lat, this.lon); 
+                var marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    title: this.name
+                });
+                marker.set("id", this.park_id);
 
                 if(this.status == "Closed"){
-                    var marker = new google.maps.Marker({
-                        position: pos,
-                        map: map,
-                        icon: redIcon,
-                        title: this.name
-                    });
-                    marker.set("id", this.park_id);
+                    marker.set("icon", redIcon);
                     closed.push(marker);
                     google.maps.event.addListener(marker, 'click', function() {
                         // open the modal window
                         markerModal.open(marker, clientPos);
                     });
                 } else if(this.status == "User discretion"){
-                    var marker = new google.maps.Marker({
-                        position: pos,
-                        map: map,
-                        icon: amberIcon,
-                        title: this.name
-                    });
-                    marker.set("id", this.park_id);
+                    marker.set("icon", amberIcon);
                     usable.push(marker);
                     google.maps.event.addListener(marker, 'click', function() {
                         // open the modal window
                         markerModal.open(marker, clientPos);
                     });
                 } else {
-                    var marker = new google.maps.Marker({
-                        position: pos,
-                        map: map,
-                        icon: greenIcon,
-                        title: this.name
-                    });
-                    marker.set("id", this.park_id);
+                    marker.set("icon", greenIcon);
                     open.push(marker);
                     google.maps.event.addListener(marker, 'click', function() {
                         // open the modal window

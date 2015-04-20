@@ -7,43 +7,28 @@ app.controller('SearchController', ['$scope', '$timeout', 'all', 'search', 'more
 	};
     mainMap = new google.maps.Map(document.getElementById("search-map"), mapOptions);
 
+    var windowWidth = window.innerWidth;
+
+	$scope.parkInfo = false;
+	$scope.infoStyle = { "left": windowWidth, "right": -windowWidth };
+	$scope.transitMode = 'DRIVING';
+
+	var clientPos = "";
+	if(navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function(position) {
+	        clientPos = new google.maps.LatLng(position.coords.latitude,
+	                                        position.coords.longitude);
+	        $scope.client = clientPos;
+	    });
+	}
+
+    var greenIcon = "images/green.png";
+    var redIcon = "images/red.png";
+    var amberIcon = "images/amber.png";
+
     all.doAllRequest().success(function(data){
 
 		$scope.results = data;
-
-		for (var i = 0; i < markers.length; i++ ) {
-		    markers[i].setMap(null);
-		}
-		markers = [];
-
-		var greenIcon = "images/green.png";
-	    var redIcon = "images/red.png";
-	    var amberIcon = "images/amber.png";
-
-		angular.forEach(data, function(data){
-			
-			var pos = new google.maps.LatLng(data.lat, data.lon);
-			var newMarker = new google.maps.Marker({
-                position: pos,
-                map: mainMap,
-                title: data.name
-            });
-            newMarker.set("id", data.park_id);
-
-			if(data.status == "Closed"){
-				newMarker.set("icon", redIcon);
-            } else if(data.status == "User discretion"){
-                newMarker.set("icon", amberIcon);
-            } else {
-                newMarker.set("icon", greenIcon);
-            }
-
-            markers.push(newMarker);
-            google.maps.event.addListener(newMarker, 'click', function() {
-                $scope.openPark(newMarker.id, clientPos, transitMode);
-            });
-            
-		})
 
 	});
 
@@ -67,10 +52,6 @@ app.controller('SearchController', ['$scope', '$timeout', 'all', 'search', 'more
 					}
 					markers = [];
 
-					var greenIcon = "images/green.png";
-				    var redIcon = "images/red.png";
-				    var amberIcon = "images/amber.png";
-
 					angular.forEach(data, function(data){
 						
 						var pos = new google.maps.LatLng(data.lat, data.lon);
@@ -91,7 +72,8 @@ app.controller('SearchController', ['$scope', '$timeout', 'all', 'search', 'more
 
 	                    markers.push(newMarker);
 	                    google.maps.event.addListener(newMarker, 'click', function() {
-	                        $scope.openPark(newMarker.id, clientPos, transitMode);
+	                        $scope.openPark(newMarker.id, "","","");
+
 	                    });
 		                
 					})
@@ -116,28 +98,21 @@ app.controller('SearchController', ['$scope', '$timeout', 'all', 'search', 'more
 
 	});
 
-	var windowWidth = window.innerWidth;
+	
 
-	$scope.parkInfo = false;
-	$scope.infoStyle = { "left": windowWidth, "right": -windowWidth };
-	$scope.transitMode = 'DRIVING';
-
-	var clientPos = "";
-	if(navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(function(position) {
-	        clientPos = new google.maps.LatLng(position.coords.latitude,
-	                                        position.coords.longitude);
-	        $scope.client = clientPos;
-	    });
-	}
-
-	$scope.openPark = function(id, clientPos, transitMode){
+	$scope.openPark = function(id, start, transitMode, client){
 
 		moreInfo.getParkRequest(id).success(function(data){
 			$scope.park = data;
 
-			if(clientPos){
-				ngDirections.initialize(data, clientPos, 'info-map-canvas', transitMode);
+			if(client){
+
+				if(start == undefined){
+					start = client;
+					console.log(start);
+				}
+
+				ngDirections.initialize(data, start, 'info-map-canvas', transitMode);
 				
             } else {
             	var latlon = new google.maps.LatLng(data.lat, data.lon);
