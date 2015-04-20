@@ -52,47 +52,55 @@ app.controller('SearchController', ['$scope', '$timeout', 'all', 'search', 'more
 					}
 					markers = [];
 
-					angular.forEach(data, function(data){
-						
-						var pos = new google.maps.LatLng(data.lat, data.lon);
-						var newMarker = new google.maps.Marker({
-	                        position: pos,
-	                        map: mainMap,
-	                        title: data.name
-	                    });
-	                    newMarker.set("id", data.park_id);
+					if(data[0]){
 
-						if(data.status == "Closed"){
-							newMarker.set("icon", redIcon);
-		                } else if(data.status == "User discretion"){
-		                    newMarker.set("icon", amberIcon);
-		                } else {
-		                    newMarker.set("icon", greenIcon);
-		                }
+						angular.forEach(data, function(data){
+							
+							var pos = new google.maps.LatLng(data.lat, data.lon);
+							var newMarker = new google.maps.Marker({
+		                        position: pos,
+		                        map: mainMap,
+		                        title: data.name
+		                    });
+		                    newMarker.set("id", data.park_id);
 
-	                    markers.push(newMarker);
-	                    google.maps.event.addListener(newMarker, 'click', function() {
-	                        $scope.openPark(newMarker.id, "","","");
+							if(data.status == "Closed"){
+								newMarker.set("icon", redIcon);
+			                } else if(data.status == "User discretion"){
+			                    newMarker.set("icon", amberIcon);
+			                } else {
+			                    newMarker.set("icon", greenIcon);
+			                }
 
-	                    });
-		                
-					})
+		                    markers.push(newMarker);
+		                    google.maps.event.addListener(newMarker, 'click', function() {
+		                        $scope.openPark(newMarker.id, "","","");
 
-					// Source http://stackoverflow.com/questions/10736653/google-map-api-v3-centre-map-on-markers
+		                    });
+			                
+						})
 
-					function autoCenter(){
-					    var limits = new google.maps.LatLngBounds();
-					    $.each(markers, function (index, marker){
-					        limits.extend(marker.position);
-					    });
-					    mainMap.fitBounds(limits);
+						// Source http://stackoverflow.com/questions/10736653/google-map-api-v3-centre-map-on-markers
+
+						function autoCenter(){
+						    var limits = new google.maps.LatLngBounds();
+						    $.each(markers, function (index, marker){
+						        limits.extend(marker.position);
+						    });
+						    mainMap.fitBounds(limits);
+						}
+
+						autoCenter();
+
+					} else {
+						var center = new google.maps.LatLng(49.2569684,-123.1239135);
+						mainMap.setCenter(center);
+						mainMap.setZoom(12);
 					}
-
-					autoCenter();
 
 				});
 
-			}, 350);
+			}, 400);
 			
 		}
 
