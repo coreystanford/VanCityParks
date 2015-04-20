@@ -23,7 +23,7 @@ var markerModal = (function () {
                     // if client position is known, initialize, otherwise load a standard map
                     if(clientPos){
 
-                        directions.initialize(marker, clientPos);
+                        directions.initialize(marker, clientPos, 'marker-map-canvas');
 
                     } else {
 
@@ -46,7 +46,7 @@ var markerModal = (function () {
                             if(startAddress){
                                 clientPos = startAddress;
                             }
-                            directions.initialize(marker, clientPos, transitMode);
+                            directions.initialize(marker, clientPos, 'marker-map-canvas', transitMode);
                         });
                     });
 
@@ -56,7 +56,7 @@ var markerModal = (function () {
                         
                         transitMode = active.attr('rel');
 
-                        directions.initialize(marker, clientPos, transitMode);
+                        directions.initialize(marker, clientPos, 'marker-map-canvas', transitMode);
                     });
 
                     // On click of #modal-close, execute close function

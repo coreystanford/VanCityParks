@@ -1,4 +1,4 @@
-var directions = (function () {
+var ngDirections = (function () {
 
     return {
 
@@ -10,7 +10,8 @@ var directions = (function () {
         directionsService = new google.maps.DirectionsService();
 
         // Create a map and center it on Manhattan.
-        var latlon = new google.maps.LatLng(marker.position.k, marker.position.D);
+        var latlon = new google.maps.LatLng(marker.lat, marker.lon);
+        
         var mapOptions = {
           zoom: 17,
           center: latlon

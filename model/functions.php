@@ -68,6 +68,17 @@ function getFountains() {
 
 // Angular functions
 
+function getAllParks() {
+
+    $base_url = 'localhost/VanCityParks/json/custom-parks.json';
+    $curl = curl_init($base_url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    $json_data = curl_exec($curl);
+    curl_close($curl);
+
+    return $json_data;
+}
+
 function getJsonParkInfo($id) {
 
     $base_url = 'localhost/VanCityParks/json/custom-park-info.json';

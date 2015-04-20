@@ -489,12 +489,13 @@ footer p {
     right: 0;
     bottom: 0;
     left: 0;
+    overflow: hidden;
 }
 
 #left {
     position: absolute;
     top: 0;
-    right: 40%;
+    right: 276px;
     bottom: 0;
     left: 0;
 }
@@ -504,7 +505,8 @@ footer p {
     top: 0;
     right: 0;
     bottom: 0;
-    left: 60%;
+    width: 275px;
+    border-left: 1px solid #0184ae;
 }
 
     #right input[type="text"] {
@@ -512,14 +514,14 @@ footer p {
         font-size: .9rem;
         padding: 5px 10px;
         border: 2px solid #0184ae;
-        margin: 80px auto 20px auto;
+        margin: 20px auto 20px auto;
         display: block;
     }
 
     #results-container {
         position: absolute;
-        top: 130px;
-        right: 10%;
+        top: 70px;
+        right: 5%;
         bottom: 0;
         left: 5%;
         overflow-y: auto;
@@ -556,7 +558,6 @@ footer p {
         -moz-transition: all 0.5s ease-in-out;
         -o-transition: all 0.5s ease-in-out;
         transition: all 0.5s ease-in-out;
-        overflow-y: hidden;
     }
 
     #info-slide {

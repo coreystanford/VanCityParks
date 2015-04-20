@@ -26,7 +26,7 @@
 
 		</div>
 
-		<park-info id="info-slide" info="park" ng-style="infoStyle"></park-info>
+		<park-info id="info-slide" ng-style="infoStyle"></park-info>
 
 	</div>
 

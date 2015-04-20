@@ -76,6 +76,7 @@
 
 		<!-- Google Maps Directions -->
 		<script src="./js/directions-init.js"></script>
+		<script src="./js/ngDirections-init.js"></script>
 
 		<!-- Main Map -->
 		<script src="./js/map.js"></script>
@@ -96,8 +97,8 @@
 	    <script src="js/directives/parkInfo.js"></script>
 	    <!-- Services -->
 	    <script src="./js/services/search.js"></script>	
-	    <script src="./js/services/moreInfo.js"></script>	
-		
+	    <script src="./js/services/moreInfo.js"></script>
+	    <script src="./js/services/all.js"></script>		
 	</body>
 
 </html>
