@@ -11,6 +11,19 @@ app.controller('SearchController', ['$scope', '$timeout', 'all', 'search', 'more
 
 	$scope.parkInfo = false;
 	$scope.infoStyle = { "left": windowWidth, "right": -windowWidth };
+
+	$scope.transits = [
+       {mode:'DRIVING', icon: "fa fa-car"},
+       {mode:'WALKING', icon: "fa fa-street-view"},
+       {mode:'BICYCLING', icon: "fa fa-bicycle"},
+       {mode:'TRANSIT', icon: "fa fa-bus"}
+    ];
+
+    $scope.selectedMode = $scope.transits[0];
+    $scope.selectMode = function(transit){
+    	$scope.selectedMode = transit;
+    }
+
 	$scope.transitMode = 'DRIVING';
 
 	var clientPos = "";
@@ -75,7 +88,7 @@ app.controller('SearchController', ['$scope', '$timeout', 'all', 'search', 'more
 		                    markers.push(newMarker);
 		                    google.maps.event.addListener(newMarker, 'click', function() {
 		                        $scope.openPark(newMarker.id, "","","");
-
+		                        $scope.selectedMode = $scope.transits[0];
 		                    });
 			                
 						})

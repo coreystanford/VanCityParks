@@ -20,10 +20,7 @@
 	<div class="map-info">
 
 		<div id="map-options">
-			<span ng-click="transitMode = 'DRIVING'; startLoc(park.lat, park.lon, startCity, transitMode, client)"><i class="fa fa-car"></i></span>
-		    <span ng-click="transitMode = 'WALKING'; startLoc(park.lat, park.lon, startCity, transitMode, client)"><i class="fa fa-street-view"></i></span>
-		    <span ng-click="transitMode = 'BICYCLING'; startLoc(park.lat, park.lon, startCity, transitMode, client)"><i class="fa fa-bicycle"></i></span>
-		    <span ng-click="transitMode = 'TRANSIT'; startLoc(park.lat, park.lon, startCity, transitMode, client)"><i class="fa fa-bus"></i></span>
+			<span ng-repeat="transit in transits" ng-click="transitMode = transit.mode; startLoc(park.lat, park.lon, startCity, transitMode, client); selectMode(transit)" ng-class='{ active: transit==selectedMode }'><i class="{{transit.icon}}"></i></span>
 		</div>
 
 		<div id="duration"></div>
