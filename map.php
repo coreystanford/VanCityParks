@@ -14,8 +14,8 @@
 	    <!-- Google Maps Javascript API v3 -->
 	    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	    <!-- AngularJS -->
-	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
-	</head>
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	</head>`
 		
 	<body ng-app="parkSearch">   
 

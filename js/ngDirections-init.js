@@ -60,6 +60,7 @@ var ngDirections = (function () {
             if (status == google.maps.DirectionsStatus.OK) {
               var duration = document.getElementById('duration');
               duration.innerHTML = '<p>' + response.routes[0].legs[0].duration.text + '</p>';
+              console.log(duration);
               directionsDisplay.setDirections(response);
             }
           });

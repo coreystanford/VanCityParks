@@ -87,7 +87,8 @@ app.controller('SearchController', ['$scope', '$timeout', 'all', 'search', 'more
 
 		                    markers.push(newMarker);
 		                    google.maps.event.addListener(newMarker, 'click', function() {
-		                        $scope.openPark(newMarker.id, "","","");
+		                        $scope.openPark(newMarker.id, $scope.startCity,$scope.transitMode, $scope.client);
+		                        console.log($scope.client);
 		                        $scope.selectedMode = $scope.transits[0];
 		                    });
 			                
