@@ -10,11 +10,13 @@ var directions = (function () {
         directionsService = new google.maps.DirectionsService();
 
         // Create a map and center it on Manhattan.
-        var latlon = new google.maps.LatLng(marker.position.k, marker.position.D);
+        var latlon = new google.maps.LatLng(marker.position.A, marker.position.F);
+
         var mapOptions = {
           zoom: 17,
           center: latlon
         }
+        
         map = new google.maps.Map(document.getElementById(mapTag), mapOptions);
 
         // Create a renderer for directions and bind it to the map.

@@ -24,7 +24,7 @@ function getParkStatus() {
 
 function getCustom() {
 
-    $base_url = 'localhost/VanCityParks/json/custom-parks.json';
+    $base_url = 'http://www.coreystanford.com/dev/vancityparks/json/custom-parks.json';
     $curl = curl_init($base_url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     $json_data = curl_exec($curl);
@@ -36,7 +36,7 @@ function getCustom() {
 
 function getCustomParkInfo($id) {
 
-    $base_url = 'localhost/VanCityParks/json/custom-park-info.json';
+    $base_url = 'http://www.coreystanford.com/dev/vancityparks/json/custom-park-info.json';
     $curl = curl_init($base_url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     $json_data = curl_exec($curl);
@@ -70,7 +70,7 @@ function getFountains() {
 
 function getAllParks() {
 
-    $base_url = 'localhost/VanCityParks/json/custom-parks.json';
+    $base_url = 'http://www.coreystanford.com/dev/vancityparks/json/custom-parks.json';
     $curl = curl_init($base_url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     $json_data = curl_exec($curl);
@@ -81,7 +81,7 @@ function getAllParks() {
 
 function getJsonParkInfo($id) {
 
-    $base_url = 'localhost/VanCityParks/json/custom-park-info.json';
+    $base_url = 'http://www.coreystanford.com/dev/vancityparks/json/custom-park-info.json';
     $curl = curl_init($base_url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     $json_data = curl_exec($curl);
@@ -101,7 +101,7 @@ function getJsonParkInfo($id) {
 
 function getSearchResults($query) {
 
-    $base_url = 'localhost/VanCityParks/json/custom-park-info.json';
+    $base_url = 'http://www.coreystanford.com/dev/vancityparks/json/custom-park-info.json';
     $curl = curl_init($base_url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     $json_data = curl_exec($curl);
@@ -115,7 +115,20 @@ function getSearchResults($query) {
             array_push($results, $park);
         } else if(stristr($park->neighbourhood, $query)) {
             array_push($results, $park);
+        } 
+
+        foreach($park->parkFacilities as $fac){
+            if(stristr($fac, $query)) {
+                array_push($results, $park);
+            }
         }
+
+        foreach($park->specialFeatures as $spec){
+            if(stristr($spec, $query)) {
+                array_push($results, $park);
+            }
+        }
+
     }
 
     return json_encode($results);

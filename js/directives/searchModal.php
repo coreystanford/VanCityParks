@@ -12,7 +12,7 @@
 
 			<div id="right">
 
-				<input type="text" placeholder="Find a park or neighbourhood" ng-model="search" />
+				<input type="text" placeholder="Parks, neighbourhoods, activities" ng-model="search" />
 
 				<div id="results-container">
 

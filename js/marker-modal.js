@@ -27,7 +27,7 @@ var markerModal = (function () {
 
                     } else {
 
-                        var latlon = new google.maps.LatLng(marker.position.k, marker.position.D);
+                        var latlon = new google.maps.LatLng(marker.position.A, marker.position.F);
                         var mapOptions = {
                           zoom: 17,
                           center: latlon

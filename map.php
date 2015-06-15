@@ -6,6 +6,7 @@
 		<title>VanCityParks</title>
 		<!-- Styles and font -->
 	    <link rel="stylesheet" type="text/css" href="./css/style.css">
+	    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 	    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	    <!-- Favicon -->
   		<link rel="shortcut icon" type="image/png" href="./images/green.png">
@@ -15,7 +16,7 @@
 	    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	    <!-- AngularJS -->
 	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-	</head>`
+	</head>
 		
 	<body ng-app="parkSearch">   
 
