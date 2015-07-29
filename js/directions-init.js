@@ -10,7 +10,7 @@ var directions = (function () {
         directionsService = new google.maps.DirectionsService();
 
         // Create a map and center it on Manhattan.
-        var latlon = new google.maps.LatLng(marker.position.A, marker.position.F);
+        var latlon = new google.maps.LatLng(marker.position.G, marker.position.K);
 
         var mapOptions = {
           zoom: 17,
